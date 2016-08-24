@@ -1,0 +1,14 @@
+body{
+	background-color: rgb(217,215,216);
+}
+
+footer{
+	background-color: rgba(97,97,97,0.5);
+	width: 100%;
+}
+
+.centrar{
+	text-align: center;
+	margin: auto;
+}
+
