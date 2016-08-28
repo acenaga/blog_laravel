@@ -13,6 +13,7 @@
 	<div class="container">
 	<h3>@yield('title')</h3>
 	@include('flash::message')
+	@include('admin.template.partials.errors')
 	<section>
 		@yield('content')
 

@@ -4,6 +4,8 @@
 
 @section('content')
 
+
+
 	{!! Form::open(['route' => 'admin.users.store', 'method' => 'POST']) !!}
 
 		<div class="form-group">

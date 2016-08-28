@@ -10,16 +10,18 @@ use App\User;
 
 use Laracasts\Flash\Flash;
 
+use App\Http\Requests\UserRequest;
+
 class UserController extends Controller
 {
-    
+
     public function create ()
     {
     	return view('admin.users.create');
     }
 
 
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
     	$user = new User($request->all());
     	$user->password = bcrypt($request->password);
@@ -56,9 +58,11 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
     	$user = User::find($id);
-    	$user->name = $request->name;
-    	$user->email = $request->email;
-    	$user->type = $request->type;
+        $user->fill($request->all()); //modifica los campos actualizados del formulario
+    	//Modifica los campos actualizados en el formulario uno por uno
+        //$user->name = $request->name;
+    	//$user->email = $request->email;
+    	//$user->type = $request->type;
     	$user->save();
 
     	flash('El usuario '. $user->name .' ha sido modificado de forma exitosa!!', 'warning');
